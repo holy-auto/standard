@@ -90,53 +90,53 @@
       intro.hidden = false;
       body.classList.add("intro-lock");
 
-      // Controls
-      var skip = document.getElementById("introSkip");
-      var enter = document.getElementById("introEnter");
       var tap = document.getElementById("introTap");
-      var sound = document.getElementById("introSound");
-      skip && skip.addEventListener("click", dismiss);
-      enter && enter.addEventListener("click", dismiss);
-
-      if (sound && video) {
-        sound.addEventListener("click", function () {
-          video.muted = !video.muted;
-          sound.textContent = video.muted ? "🔇" : "🔊";
-          if (!video.muted) { video.play().catch(function () {}); }
-        });
-      }
 
       if (video) {
         var started = false;
-        video.addEventListener("playing", function () { started = true; });
+        var startPlayback = function () {
+          var pr = video.play();
+          if (pr && typeof pr.catch === "function") {
+            pr.catch(function () {
+              // Autoplay blocked -> show the only affordance, a play button
+              if (!started && !dismissed) { intro.classList.add("needs-tap"); }
+            });
+          }
+        };
+
+        video.addEventListener("playing", function () {
+          started = true;
+          intro.classList.remove("needs-tap");
+        });
         // Auto-advance when the clip finishes
         video.addEventListener("ended", dismiss);
         // If the video can't load/decode, don't trap the visitor
         video.addEventListener("error", dismiss);
-        // Try muted autoplay; if blocked, show a tap-to-play button
-        var tryPlay = video.play();
-        if (tryPlay && typeof tryPlay.catch === "function") {
-          tryPlay.catch(function () {
-            if (!started && !dismissed) {
-              intro.classList.add("needs-tap");
-              if (tap) {
-                tap.addEventListener("click", function () {
-                  intro.classList.remove("needs-tap");
-                  video.play().catch(dismiss);
-                });
-              }
-            }
-          });
-        }
-        // Safety net #1: if the source is unsupported/broken, bail out fast
+
+        // Tap/click ANYWHERE skips once playing; before playback it starts it
+        intro.addEventListener("click", function () {
+          if (started) { dismiss(); }
+          else { intro.classList.remove("needs-tap"); startPlayback(); }
+        });
+
+        // Kick off muted autoplay as soon as possible
+        startPlayback();
+
+        // Bail fast only if the source is genuinely unsupported/missing
         if (video.error || video.networkState === 3 /* NO_SOURCE */) { dismiss(); }
-        // Safety net #2: never hang longer than the clip + a small buffer
+
+        // Auto-advance safety: once we know the length, cap the intro to it
         video.addEventListener("loadedmetadata", function () {
-          var ms = (isFinite(video.duration) ? video.duration : 12) * 1000 + 1500;
+          var ms = (isFinite(video.duration) ? video.duration : 15) * 1000 + 2000;
           window.setTimeout(dismiss, ms);
         });
-        // Safety net #3: if playback hasn't started in ~4.5s, move on
-        window.setTimeout(function () { if (!started) dismiss(); }, 4500);
+
+        // Last-resort watchdog: if NO data has loaded at all after 12s
+        // (broken file / offline), reveal the site rather than hang.
+        // A slow-but-buffering video (readyState >= 1) is left to play.
+        window.setTimeout(function () {
+          if (!started && video.readyState === 0) { dismiss(); }
+        }, 12000);
       } else {
         dismiss();
       }

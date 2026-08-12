@@ -17,25 +17,12 @@
 <body>
 
 <!-- ========================= OPENING INTRO ======================= -->
-<!-- Shown & controlled by JS only; hidden by default for no-JS/crawlers -->
+<!-- Full-screen video only. Controlled by JS; hidden by default for
+     no-JS/crawlers. Tap/click anywhere to skip. -->
 <div class="intro" id="intro" hidden>
   <video class="intro__video" id="introVideo"
          src="assets/video/opening.mp4"
          muted playsinline preload="auto" autoplay></video>
-  <div class="intro__wash"></div>
-  <div class="intro__fx"></div>
-  <div class="intro__bars"></div>
-
-  <div class="intro__brand">
-    <span class="mark">SD</span>
-    <b>STANDARD<i>DETAILS</i></b>
-  </div>
-  <span class="intro__now">★ NOW SHOWING ★</span>
-
-  <button class="intro__btn intro__skip" id="introSkip">Skip ▶</button>
-  <button class="intro__btn intro__sound" id="introSound" aria-label="音声オン/オフ">🔇</button>
-
-  <button class="intro__enter" id="introEnter">▶ Enter Site</button>
   <button class="intro__tap" id="introTap" aria-label="再生">▶</button>
 </div>
 
