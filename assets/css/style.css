@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
 /* =====================================================================
    STANDARD DETAILS — Retro Garage Design System
    Old-school 70's / 80's inspired. Warm cream paper, burnt orange,
@@ -295,7 +297,7 @@ mark.hl {
   background:
     radial-gradient(120% 90% at 50% 0%, var(--gold-2), var(--orange) 45%, var(--rust) 100%);
   box-shadow: var(--shadow-hard);
-  display: grid; place-items: center; overflow: hidden;
+  display: grid; place-items: center; overflow: visible;
 }
 .hero__art .disc {
   width: 62%; aspect-ratio: 1; border-radius: 50%;
@@ -530,7 +532,15 @@ mark.hl {
 .info-list dd { margin: 0; color: var(--ink-soft); }
 
 /* ------------------------------ Footer ----------------------------- */
-.site-footer { background: var(--ink); color: var(--paper); border-top: 3px solid var(--ink); }
+.site-footer { background: var(--ink); color: var(--paper); position: relative; }
+/* wavy top edge on every footer */
+.site-footer::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0;
+  height: 28px; transform: translateY(-99%);
+  background: var(--ink);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28' viewBox='0 0 120 28' preserveAspectRatio='none'%3E%3Cpath d='M0 28 V15 Q30 0 60 15 T120 15 V28 Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom / 120px 28px;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28' viewBox='0 0 120 28' preserveAspectRatio='none'%3E%3Cpath d='M0 28 V15 Q30 0 60 15 T120 15 V28 Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom / 120px 28px;
+}
 .site-footer .grid-foot {
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem;
   padding: clamp(3rem,6vw,4.5rem) 0 2rem;
@@ -551,6 +561,86 @@ mark.hl {
   border-top: 2px solid rgba(243,231,204,.2); padding: 1.2rem 0;
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
   font-size:.85rem; color: rgba(243,231,204,.6);
+}
+
+/* =====================================================================
+   OLD-SCHOOL DECOR — starburst stickers, retro stripes, halftone,
+   wavy dividers, groovy accents. Inspired by 70's/80's web + poster art.
+   ===================================================================== */
+
+/* Groovy accent font */
+.f-groovy { font-family: "Bungee", var(--f-poster); }
+
+/* --- Retro multi-color stripe band (70's racing / poster stripes) --- */
+.retro-stripes {
+  height: 18px;
+  border-block: 3px solid var(--ink);
+  background: repeating-linear-gradient(90deg,
+    var(--rust)   0 44px,
+    var(--orange) 44px 88px,
+    var(--gold)   88px 132px,
+    var(--teal)   132px 176px);
+}
+.retro-stripes--thin { height: 12px; }
+
+/* --- Halftone dot texture overlay (add to a positioned parent) --- */
+.halftone { position: relative; }
+.halftone > * { position: relative; z-index: 1; }
+.halftone::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(36,26,18,.22) 1.4px, transparent 1.6px);
+  background-size: 10px 10px;
+  mix-blend-mode: multiply; opacity: .5;
+}
+
+/* --- Sunburst pinwheel sticker / seal --- */
+.sticker {
+  --s: 130px;
+  width: var(--s); height: var(--s); border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  background: repeating-conic-gradient(from 0deg,
+    var(--rust) 0 15deg, var(--gold) 15deg 30deg);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  transform: rotate(-12deg);
+  position: relative; flex: none;
+}
+.sticker::before {
+  content: ""; position: absolute; inset: 13px; border-radius: 50%;
+  background: var(--cream); border: 2.5px solid var(--ink);
+}
+.sticker__txt {
+  position: relative; z-index: 1;
+  font-family: "Bungee", var(--f-poster); line-height: .95;
+  font-size: calc(var(--s) * .155); color: var(--ink);
+  letter-spacing: .02em;
+}
+.sticker__txt small {
+  display: block; font-size: .6em; color: var(--rust); margin-top: .15em;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sticker { animation: wobble 6s ease-in-out infinite; }
+}
+@keyframes wobble { 0%,100%{transform:rotate(-12deg)} 50%{transform:rotate(-4deg)} }
+
+/* --- Wavy divider (sits at bottom edge of a section) --- */
+.wave-top { position: relative; }
+.wave-top::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0;
+  height: 30px; transform: translateY(-99%);
+  background: inherit;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='30' viewBox='0 0 120 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30 V16 Q30 0 60 16 T120 16 V30 Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom / 120px 30px;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='30' viewBox='0 0 120 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30 V16 Q30 0 60 16 T120 16 V30 Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom / 120px 30px;
+}
+
+/* --- Old-school "sticker" corner tags --- */
+.pill-tag {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: "Bungee", var(--f-poster); font-size: .82rem; letter-spacing: .04em;
+  background: var(--teal); color: var(--cream);
+  border: 2.5px solid var(--ink); border-radius: 30px;
+  padding: .3rem .85rem; box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-3deg);
 }
 
 /* Placeholder highlight helper (owner-editable markers) */
