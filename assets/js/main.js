@@ -59,6 +59,90 @@
     });
   }
 
+  /* ---- Opening intro (video splash -> homepage) ---- */
+  var intro = document.getElementById("intro");
+  if (intro) {
+    var video = document.getElementById("introVideo");
+    var seenKey = "sd_intro_seen";
+    var seen = false;
+    try { seen = sessionStorage.getItem(seenKey) === "1"; } catch (e) {}
+
+    if (seen) {
+      // Already watched this session — skip straight to the homepage.
+      intro.parentNode && intro.parentNode.removeChild(intro);
+    } else {
+      var dismissed = false;
+      var dismiss = function () {
+        if (dismissed) return;
+        dismissed = true;
+        try { sessionStorage.setItem(seenKey, "1"); } catch (e) {}
+        intro.classList.add("is-hiding");
+        body.classList.remove("intro-lock");
+        window.setTimeout(function () {
+          intro.hidden = true;
+          if (video) { try { video.pause(); } catch (e) {} }
+          var h1 = document.querySelector(".hero h1");
+          if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); }
+        }, 950);
+      };
+
+      // Reveal + lock scroll
+      intro.hidden = false;
+      body.classList.add("intro-lock");
+
+      // Controls
+      var skip = document.getElementById("introSkip");
+      var enter = document.getElementById("introEnter");
+      var tap = document.getElementById("introTap");
+      var sound = document.getElementById("introSound");
+      skip && skip.addEventListener("click", dismiss);
+      enter && enter.addEventListener("click", dismiss);
+
+      if (sound && video) {
+        sound.addEventListener("click", function () {
+          video.muted = !video.muted;
+          sound.textContent = video.muted ? "🔇" : "🔊";
+          if (!video.muted) { video.play().catch(function () {}); }
+        });
+      }
+
+      if (video) {
+        var started = false;
+        video.addEventListener("playing", function () { started = true; });
+        // Auto-advance when the clip finishes
+        video.addEventListener("ended", dismiss);
+        // If the video can't load/decode, don't trap the visitor
+        video.addEventListener("error", dismiss);
+        // Try muted autoplay; if blocked, show a tap-to-play button
+        var tryPlay = video.play();
+        if (tryPlay && typeof tryPlay.catch === "function") {
+          tryPlay.catch(function () {
+            if (!started && !dismissed) {
+              intro.classList.add("needs-tap");
+              if (tap) {
+                tap.addEventListener("click", function () {
+                  intro.classList.remove("needs-tap");
+                  video.play().catch(dismiss);
+                });
+              }
+            }
+          });
+        }
+        // Safety net #1: if the source is unsupported/broken, bail out fast
+        if (video.error || video.networkState === 3 /* NO_SOURCE */) { dismiss(); }
+        // Safety net #2: never hang longer than the clip + a small buffer
+        video.addEventListener("loadedmetadata", function () {
+          var ms = (isFinite(video.duration) ? video.duration : 12) * 1000 + 1500;
+          window.setTimeout(dismiss, ms);
+        });
+        // Safety net #3: if playback hasn't started in ~4.5s, move on
+        window.setTimeout(function () { if (!started) dismiss(); }, 4500);
+      } else {
+        dismiss();
+      }
+    }
+  }
+
   /* ---- Footer year ---- */
   var y = document.querySelector("[data-year]");
   if (y) { y.textContent = new Date().getFullYear(); }
