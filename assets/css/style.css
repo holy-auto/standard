@@ -753,3 +753,25 @@ body.intro-lock { overflow: hidden; }
 .scene-hero .groovy { font-family: "Bungee", var(--f-poster); }
 .scene-hero .black { font-family: "UnifrakturCook", Georgia, serif; }
 .scene-hero .script { font-family: "Yellowtail", "Segoe Script", cursive; }
+
+/* Homepage only: header floats transparently over the hero image, then
+   turns solid once you scroll into the content below (JS adds .is-solid). */
+.home .site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.home .site-header:not(.is-solid) .brand .name,
+.home .site-header:not(.is-solid) .nav-links > a {
+  text-shadow: 0 1px 3px rgba(255,255,255,.55);
+}
+.home .site-header.is-solid {
+  background: var(--paper);
+  border-bottom-color: var(--ink);
+  box-shadow: 0 6px 20px -14px rgba(36,26,18,.6);
+}
+/* the mobile slide-in panel keeps its own solid background regardless */
+@media (max-width: 720px) {
+  .home .nav-links > a { text-shadow: none; }
+}

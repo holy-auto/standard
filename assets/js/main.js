@@ -143,6 +143,22 @@
     }
   }
 
+  /* ---- Homepage transparent header -> solid on scroll ---- */
+  if (body.classList.contains("home")) {
+    var header = document.querySelector(".site-header");
+    var hero = document.querySelector(".scene-hero");
+    if (header && hero) {
+      var onScroll = function () {
+        var trigger = hero.offsetHeight - header.offsetHeight - 8;
+        if (window.scrollY > trigger) header.classList.add("is-solid");
+        else header.classList.remove("is-solid");
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    }
+  }
+
   /* ---- Footer year ---- */
   var y = document.querySelector("[data-year]");
   if (y) { y.textContent = new Date().getFullYear(); }
