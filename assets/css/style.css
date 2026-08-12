@@ -743,3 +743,5 @@ body.intro-lock { overflow: hidden; }
 .scene-hero .slab { font-family: var(--f-display); }
 .scene-hero .poster { font-family: var(--f-poster); }
 .scene-hero .groovy { font-family: "Bungee", var(--f-poster); }
+.scene-hero .black { font-family: "UnifrakturCook", Georgia, serif; }
+.scene-hero .script { font-family: "Yellowtail", "Segoe Script", cursive; }
