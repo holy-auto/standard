@@ -723,3 +723,23 @@ body.intro-lock { overflow: hidden; }
 }
 .intro.needs-tap { cursor: default; }
 .intro.needs-tap .intro__tap { display: grid; }
+
+/* =====================================================================
+   SCENE HERO — illustrated roadside-garage top view (SVG scene).
+   ===================================================================== */
+.scene-hero {
+  background: linear-gradient(#7fa9c4, #a9c8d6 55%, #d7e4e2);
+  border-bottom: 3px solid var(--ink);
+  overflow: hidden;
+}
+.scene-hero svg { width: 100%; height: auto; max-height: 90vh; display: block; margin-inline: auto; }
+.scene-hero .nav-txt {
+  font-family: var(--f-poster); fill: #3a2a1c; letter-spacing: 2px;
+  transition: fill .15s;
+}
+.scene-hero a:hover .nav-txt,
+.scene-hero .nav-txt:hover { fill: #b23a28; }
+.scene-hero a { cursor: pointer; }
+.scene-hero .slab { font-family: var(--f-display); }
+.scene-hero .poster { font-family: var(--f-poster); }
+.scene-hero .groovy { font-family: "Bungee", var(--f-poster); }
