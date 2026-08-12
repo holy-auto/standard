@@ -731,6 +731,14 @@ body.intro-lock { overflow: hidden; }
   background: linear-gradient(#7fa9c4, #a9c8d6 55%, #d7e4e2);
   border-bottom: 3px solid var(--ink);
   overflow: hidden;
+  position: relative;
+}
+/* Optional raster hero image laid over the SVG scene. If it loads it covers
+   the SVG; if it fails (onerror hides it) the SVG scene shows through as a
+   self-contained fallback. Same 16:9 aspect as the SVG so no crop. */
+.scene-hero .scene-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; display: block; z-index: 2;
 }
 .scene-hero svg { width: 100%; height: auto; max-height: 90vh; display: block; margin-inline: auto; }
 .scene-hero .nav-txt {
