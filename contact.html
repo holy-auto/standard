@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add("js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact｜STANDARD DETAILS</title>
+<meta name="description" content="STANDARD DETAILSへのご予約・お問い合わせ。電話・LINE・フォームからお気軽にご連絡ください。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="STANDARD DETAILS ホーム">
+      <span class="mark">SD</span>
+      <span class="name"><b>STANDARD</b><i>DETAILS</i></span>
+    </a>
+    <nav class="nav-links" aria-label="メインメニュー">
+      <a href="index.html">Home</a>
+      <a href="service.html">Service</a>
+      <a href="works.html">Works</a>
+      <a href="price.html">Price</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn--gold nav-cta" href="contact.html">予約する <span class="arw">→</span></a>
+    </nav>
+    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">HOME</a> / CONTACT</div>
+    <h1>CONTACT</h1>
+    <p class="jp">ご予約・お問い合わせ</p>
+  </div>
+</section>
+<div class="retro-stripes" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="kicker center-line">Get In Touch</span>
+      <h2 class="h-poster">お気軽にどうぞ</h2>
+      <p class="lead center mt-s">ご予約・お見積もり・ご相談は下記より。お電話・LINEでもお受けしています。</p>
+    </div>
+
+    <!-- Quick contact cards -->
+    <div class="grid grid-3 mt-l reveal">
+      <article class="card center">
+        <div class="ico-chip" style="margin-inline:auto">📞</div>
+        <h3>電話</h3>
+        <p>営業時間内はお電話が一番スムーズです。</p>
+        <a class="btn mt-m" href="tel:00000000000"><span class="ph">[電話番号]</span></a>
+      </article>
+      <article class="card center">
+        <div class="ico-chip" style="margin-inline:auto">💬</div>
+        <h3>LINE</h3>
+        <p>写真を送っていただければお見積もりも可能。</p>
+        <a class="btn btn--teal mt-m" href="#"><span class="ph">[LINEリンク]</span></a>
+      </article>
+      <article class="card center">
+        <div class="ico-chip" style="margin-inline:auto">📷</div>
+        <h3>Instagram</h3>
+        <p>DMからのお問い合わせもOKです。</p>
+        <a class="btn btn--gold mt-m" href="https://www.instagram.com/standard_details/" target="_blank" rel="noopener">@standard_details</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section" style="background:var(--paper-2);border-block:3px solid var(--ink)">
+  <div class="wrap split" style="align-items:start">
+    <div class="reveal">
+      <span class="kicker">Reservation Form</span>
+      <h2 class="h-slab">フォームで予約・相談</h2>
+      <p class="lead mt-m">下記フォームからもお問い合わせいただけます。2営業日以内にご返信します。</p>
+      <div class="frame mt-m">
+        <div class="photo-slot" style="aspect-ratio:16/10">
+          <div><div class="ico">🗺️</div>Googleマップ<small>店舗の地図をここに埋め込みます</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <form class="form" data-contact-form novalidate>
+        <div>
+          <label>お名前 <span class="req">*</span></label>
+          <input type="text" name="name" required autocomplete="name" placeholder="山田 太郎">
+        </div>
+        <div class="row-2">
+          <div>
+            <label>電話番号 <span class="req">*</span></label>
+            <input type="tel" name="tel" required autocomplete="tel" placeholder="090-0000-0000">
+          </div>
+          <div>
+            <label>メール</label>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="row-2">
+          <div>
+            <label>車種</label>
+            <input type="text" name="car" placeholder="例：トヨタ 86">
+          </div>
+          <div>
+            <label>ご希望メニュー</label>
+            <select name="menu">
+              <option value="">選択してください</option>
+              <option>手洗い洗車</option>
+              <option>磨き・ポリッシング</option>
+              <option>ガラスコーティング</option>
+              <option>内装クリーニング</option>
+              <option>フルディテイリング</option>
+              <option>その他・相談したい</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label>ご相談内容</label>
+          <textarea name="message" placeholder="ご希望日、お車の状態、気になる点などお気軽にご記入ください。"></textarea>
+        </div>
+        <button class="btn btn--lg" type="submit" style="justify-content:center">送信する <span class="arw">→</span></button>
+        <p class="note">※ このフォームはデモです。実際に送信できるようにするには設定が必要です（詳細はREADME参照）。</p>
+        <p class="note" data-form-msg hidden style="color:var(--teal-2);font-weight:700">
+          ✔ 送信ありがとうございます！（※現在はデモ表示です。送信先の設定後に実際のメールが届きます）
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="section">
+  <div class="wrap" style="max-width:760px">
+    <div class="center reveal">
+      <span class="kicker center-line">Hours &amp; Access</span>
+      <h2 class="h-poster">営業案内</h2>
+    </div>
+    <dl class="info-list mt-l reveal">
+      <div class="row"><dt>住所</dt><dd><span class="ph">〒000-0000 [住所を入力]</span></dd></div>
+      <div class="row"><dt>電話</dt><dd><span class="ph">[電話番号]</span></dd></div>
+      <div class="row"><dt>営業時間</dt><dd><span class="ph">[例：9:00〜19:00]</span></dd></div>
+      <div class="row"><dt>定休日</dt><dd><span class="ph">[例：不定休]</span></dd></div>
+      <div class="row"><dt>駐車場</dt><dd><span class="ph">[あり／台数 など]</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap grid-foot">
+    <div>
+      <a class="brand" href="index.html"><span class="mark">SD</span><span class="name"><b>STANDARD</b><i>DETAILS</i></span></a>
+      <p class="mt-m">オールドスクールな手仕事で愛車を磨き上げる、カーディテイリング＆コーティング専門店。</p>
+      <div class="social">
+        <a href="https://www.instagram.com/standard_details/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="LINE">LINE</a>
+        <a href="tel:00000000000" aria-label="電話">TEL</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-h">Menu</div>
+      <div class="foot-links">
+        <a href="service.html">Service</a><a href="works.html">Works</a><a href="price.html">Price</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-h">Shop Info</div>
+      <p>📍 <span class="ph">[住所を入力]</span><br>📞 <span class="ph">[電話番号]</span><br>🕒 <span class="ph">[営業時間]</span><br>休 <span class="ph">[定休日]</span></p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span data-year>2026</span> STANDARD DETAILS. All rights reserved.</span>
+    <span>MAKE IT SHINE.</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
