@@ -711,6 +711,11 @@ body.intro-lock { overflow: hidden; }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; background: #000;
 }
+/* On portrait / narrow screens, show the WHOLE video (letterboxed) so it
+   isn't cropped/cut off. Desktop landscape keeps the full-bleed cover. */
+@media (orientation: portrait), (max-width: 640px) {
+  .intro__video { object-fit: contain; }
+}
 
 /* Only-when-needed play button (shown if the browser blocks autoplay).
    Hidden the rest of the time so nothing distracts from the footage. */
