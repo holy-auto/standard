@@ -13,22 +13,23 @@
 
 /* ------------------------------ Tokens ----------------------------- */
 :root {
-  /* Palette — antique sign-painter / aged billboard (matches the hero art):
-     aged parchment, deep pine green, brick red, black ink, antique gold. */
-  --paper:      #ece0c0;   /* aged parchment base        */
-  --paper-2:    #e2d3ac;   /* deeper parchment           */
-  --cream:      #f4ebd5;   /* light parchment (cards)    */
-  --ink:        #1d1712;   /* black ink text             */
-  --ink-soft:   #4a3a29;   /* softened brown text        */
-  --orange:     #b0472a;   /* brick terracotta (primary) */
-  --orange-2:   #8f3820;   /* deeper brick               */
-  --rust:       #9f331b;   /* brick red                  */
-  --gold:       #c69130;   /* antique mustard gold       */
-  --gold-2:     #d9b152;   /* light antique gold         */
-  --teal:       #2f5d4f;   /* deep pine green            */
-  --teal-2:     #234a3f;   /* darkest pine               */
-  --line:       rgba(29,23,18,.16);
-  --line-strong:rgba(29,23,18,.34);
+  /* Palette — 70's old-school, GREEN + WHITE led. White/cream base, green
+     for the important bits and the STANDARD DETAILS branding, gold as a
+     small vintage accent. Ties to the green hand-painted hero art. */
+  --paper:      #f6f3ea;   /* warm off-white base        */
+  --paper-2:    #eae3d3;   /* light cream section        */
+  --cream:      #fffdf6;   /* near-white (cards)         */
+  --ink:        #1b2620;   /* deep green-black text      */
+  --ink-soft:   #4b574f;   /* muted green-gray text      */
+  --orange:     #2f7355;   /* GREEN (primary/important)  */
+  --orange-2:   #256045;   /* deeper green               */
+  --rust:       #2f7355;   /* green (was red accent)     */
+  --gold:       #bd9540;   /* muted vintage gold accent  */
+  --gold-2:     #d4b25f;   /* light vintage gold         */
+  --teal:       #2f7355;   /* green (secondary)          */
+  --teal-2:     #234f3d;   /* deep forest green          */
+  --line:       rgba(27,38,32,.16);
+  --line-strong:rgba(27,38,32,.32);
 
   /* Type */
   --f-display: "Alfa Slab One", Georgia, serif;
@@ -197,10 +198,10 @@ mark.hl {
   font-family: var(--f-poster); font-size: 1.7rem;
   letter-spacing: .06em; line-height: .9;
 }
-.brand .name b { display: block; font-weight: 400; }
+.brand .name b { display: block; font-weight: 400; color: var(--teal-2); }
 .brand .name i {
   display: block; font-style: normal; font-size: .58em;
-  letter-spacing: .34em; color: var(--rust);
+  letter-spacing: .34em; color: var(--orange);
 }
 .nav-links { display: flex; align-items: center; gap: 1.6rem; }
 .nav-links a {
@@ -471,7 +472,8 @@ mark.hl {
   font-family: var(--f-black); font-weight: 700;
   font-size: clamp(3.2rem,10vw,6.4rem); line-height: .96;
   text-transform: uppercase; letter-spacing: .01em;
-  text-shadow: 2px 2px 0 rgba(29,23,18,.12);
+  color: var(--teal-2);
+  text-shadow: 2px 2px 0 rgba(27,38,32,.12);
 }
 .page-hero .jp { font-family: var(--f-script); color: var(--teal); font-size: clamp(1.3rem,3vw,2rem); margin-top:.2rem; }
 .crumbs { font-family: var(--f-poster); letter-spacing:.14em; font-size:1rem; color: var(--ink-soft); margin-bottom:1rem; }
@@ -560,7 +562,8 @@ mark.hl {
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem;
   padding: clamp(3rem,6vw,4.5rem) 0 2rem;
 }
-.site-footer .brand .name { color: var(--paper); }
+.site-footer .brand .name b { color: var(--paper); }
+.site-footer .brand .name i { color: var(--gold-2); }
 .site-footer p { color: rgba(243,231,204,.72); }
 .foot-h { font-family: var(--f-poster); letter-spacing:.14em; font-size:1.15rem; color: var(--gold-2); text-transform: uppercase; margin-bottom:1rem; }
 .foot-links a { display:block; padding:.28rem 0; color: rgba(243,231,204,.8); }
