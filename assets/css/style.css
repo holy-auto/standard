@@ -758,6 +758,19 @@ body.intro-lock { overflow: hidden; }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center; display: block; z-index: 2;
 }
+/* Clickable hotspot map over the hero image. The wrapper is locked to the
+   image's aspect ratio so percentage-positioned links always sit exactly on
+   the buttons painted into the artwork, at any screen size. */
+.scene-hero .hero-map { position: relative; width: 100%; aspect-ratio: 2000 / 1125; }
+.scene-hero .hero-map > svg { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; z-index: 1; }
+.scene-hero .hot {
+  position: absolute; z-index: 3; display: block; border-radius: 10px;
+  background: transparent; cursor: pointer;
+  transition: background .15s, box-shadow .15s;
+}
+.scene-hero .hot:hover { background: rgba(214,177,82,.22); box-shadow: 0 0 0 2px rgba(31,23,18,.35) inset; }
+.scene-hero .hot:focus-visible { outline: 3px solid var(--gold-2); outline-offset: 2px; }
+.scene-hero.hotspot-debug .hot { background: rgba(214,60,40,.38); box-shadow: 0 0 0 2px #fff inset; }
 .scene-hero svg { width: 100%; height: auto; max-height: 90vh; display: block; margin-inline: auto; }
 .scene-hero .nav-txt {
   font-family: var(--f-poster); fill: #3a2a1c; letter-spacing: 2px;
