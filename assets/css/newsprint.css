@@ -192,6 +192,39 @@ body.newsprint .retro-stripes { display: none; }   /* replaced by masthead */
 .colophon .big { font-family: "UnifrakturCook", serif; font-size: 1.4rem; color: var(--news-ink); }
 .colophon a { color: var(--news-green); }
 
+/* ---- homepage: full-bleed hero sits above the sheet ---- */
+body.newsprint .scene-hero { border-bottom: 0; }
+.paper--home { margin-top: 0; }
+
+/* ---- service listings (menu / price-list style) ---- */
+.listings { columns: 2; column-gap: 2.2rem; }
+.listing {
+  break-inside: avoid; display: grid; grid-template-columns: 1fr auto; align-items: baseline;
+  gap: 0 .5rem; padding: .6rem 0; border-bottom: 1px dotted rgba(28,27,21,.5);
+}
+.listing:first-child { border-top: 1px solid var(--news-ink); }
+.listing h4 { font-family: "Playfair Display", serif; font-weight: 900; font-size: 1.08rem; text-transform: uppercase; margin: 0; }
+.listing .jp { grid-column: 1 / -1; font-size: .82rem; color: var(--news-green); margin-top: -.1rem; }
+.listing .desc { grid-column: 1 / -1; font-size: .88rem; line-height: 1.5; margin: .25rem 0 0; color: var(--news-soft); }
+.listing .price { font-family: "Playfair Display", serif; font-weight: 700; white-space: nowrap; }
+.listing .price small { color: var(--news-soft); }
+
+/* ---- stat line ---- */
+.statline { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--news-ink); }
+.statline div { text-align: center; padding: .9rem .4rem; border-right: 1px solid var(--news-ink); }
+.statline div:last-child { border-right: 0; }
+.statline b { display: block; font-family: "Playfair Display", serif; font-weight: 900; font-size: clamp(1.8rem,4vw,2.6rem); line-height: 1; }
+.statline span { font-size: .74rem; text-transform: uppercase; letter-spacing: .12em; color: var(--news-soft); }
+
+/* ---- gravure (photo feature strip) ---- */
+.gravure { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+
+/* ---- big classified ad (CTA) ---- */
+.adbox { border: 4px double var(--news-ink); padding: 1.6rem 1.2rem; text-align: center; background: var(--news-paper2); }
+.adbox .lbl { font-family: "Old Standard TT",serif; text-transform: uppercase; letter-spacing: .3em; font-size: .74rem; color: var(--news-red); }
+.adbox h3 { font-family: "Playfair Display", serif; font-weight: 900; font-size: clamp(1.6rem,4.5vw,2.6rem); margin: .3rem 0 .5rem; text-transform: uppercase; }
+.adbox p { margin: 0 0 1rem; color: var(--news-soft); }
+
 .news-ph { color: var(--news-red); font-style: italic; }
 
 /* ---- responsive ---- */
@@ -204,4 +237,9 @@ body.newsprint .retro-stripes { display: none; }   /* replaced by masthead */
   .masthead__meta, .masthead__meta.r { text-align: center; }
   .nameplate { white-space: normal; }
   .classified .row { grid-template-columns: 1fr; gap: .1rem; }
+  .listings { columns: 1; }
+  .statline { grid-template-columns: repeat(2,1fr); }
+  .statline div:nth-child(2) { border-right: 0; }
+  .statline div:nth-child(1), .statline div:nth-child(2) { border-bottom: 1px solid var(--news-ink); }
+  .gravure { grid-template-columns: 1fr 1fr; }
 }
