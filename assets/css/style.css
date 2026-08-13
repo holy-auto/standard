@@ -13,25 +13,29 @@
 
 /* ------------------------------ Tokens ----------------------------- */
 :root {
-  /* Palette */
-  --paper:      #f3e7cc;   /* warm cream base            */
-  --paper-2:    #ecdcbb;   /* slightly deeper cream      */
-  --cream:      #fbf3e0;   /* lightest cream (cards)     */
-  --ink:        #241a12;   /* espresso near-black text   */
-  --ink-soft:   #5a4632;   /* softened brown text        */
-  --orange:     #cf5f22;   /* burnt orange (primary)     */
-  --orange-2:   #b74d18;   /* deeper orange              */
-  --rust:       #a8341c;   /* racing red / rust          */
-  --gold:       #e2a026;   /* mustard gold               */
-  --gold-2:     #f0bd4a;   /* light gold                 */
-  --teal:       #2c6b57;   /* retro pine green           */
-  --teal-2:     #1f5344;   /* deep pine                  */
-  --line:       rgba(36,26,18,.16);
-  --line-strong:rgba(36,26,18,.32);
+  /* Palette — 70's old-school, GREEN + WHITE led. White/cream base, green
+     for the important bits and the STANDARD DETAILS branding, gold as a
+     small vintage accent. Ties to the green hand-painted hero art. */
+  --paper:      #f6f3ea;   /* warm off-white base        */
+  --paper-2:    #eae3d3;   /* light cream section        */
+  --cream:      #fffdf6;   /* near-white (cards)         */
+  --ink:        #1b2620;   /* deep green-black text      */
+  --ink-soft:   #4b574f;   /* muted green-gray text      */
+  --orange:     #2f7355;   /* GREEN (primary/important)  */
+  --orange-2:   #256045;   /* deeper green               */
+  --rust:       #2f7355;   /* green (was red accent)     */
+  --gold:       #bd9540;   /* muted vintage gold accent  */
+  --gold-2:     #d4b25f;   /* light vintage gold         */
+  --teal:       #2f7355;   /* green (secondary)          */
+  --teal-2:     #234f3d;   /* deep forest green          */
+  --line:       rgba(27,38,32,.16);
+  --line-strong:rgba(27,38,32,.32);
 
   /* Type */
   --f-display: "Alfa Slab One", Georgia, serif;
   --f-poster:  "Bebas Neue", Impact, sans-serif;
+  --f-black:   "UnifrakturCook", "Times New Roman", Georgia, serif; /* blackletter */
+  --f-script:  "Yellowtail", "Segoe Script", cursive;               /* script accent */
   --f-body:    "DM Sans", system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
                "Yu Gothic", Meiryo, sans-serif;
 
@@ -194,10 +198,10 @@ mark.hl {
   font-family: var(--f-poster); font-size: 1.7rem;
   letter-spacing: .06em; line-height: .9;
 }
-.brand .name b { display: block; font-weight: 400; }
+.brand .name b { display: block; font-weight: 400; color: var(--teal-2); }
 .brand .name i {
   display: block; font-style: normal; font-size: .58em;
-  letter-spacing: .34em; color: var(--rust);
+  letter-spacing: .34em; color: var(--orange);
 }
 .nav-links { display: flex; align-items: center; gap: 1.6rem; }
 .nav-links a {
@@ -284,6 +288,7 @@ mark.hl {
   margin: 1.3rem 0 .3rem; letter-spacing: .005em;
 }
 .hero h1 .line2 { color: var(--orange); -webkit-text-stroke: 0; }
+.hero h1:focus { outline: none; } /* programmatic focus after intro, no box */
 .hero__jp {
   font-family: var(--f-display); font-size: clamp(1.15rem, 2.6vw, 1.7rem);
   color: var(--ink); margin-bottom: 1.2rem;
@@ -446,21 +451,33 @@ mark.hl {
 .cta-band .btn--ghost { --fg: var(--cream); border-color: var(--cream); box-shadow: 4px 4px 0 rgba(36,26,18,.5); }
 
 /* --------------------------- Page hero (sub) ----------------------- */
+/* Aged-parchment header framed in antique gold, blackletter title. */
 .page-hero {
-  background: var(--ink); color: var(--cream);
+  background:
+    radial-gradient(120% 140% at 50% -20%, var(--cream), var(--paper) 60%, var(--paper-2));
+  color: var(--ink);
   border-bottom: 3px solid var(--ink); position: relative; overflow: hidden;
-  padding: clamp(3rem,7vw,5rem) 0 clamp(2.6rem,6vw,4rem);
+  padding: clamp(3.2rem,7vw,5rem) 0 clamp(2.8rem,6vw,4rem);
 }
-.page-hero::before {
-  content:""; position:absolute; inset:0;
-  background: repeating-conic-gradient(from 0deg at 85% 20%,
-    rgba(226,160,38,.16) 0 8deg, transparent 8deg 16deg);
+.page-hero::before { /* faint radial vignette for aged feel */
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(58,36,16,.14));
 }
-.page-hero .wrap { position: relative; }
-.page-hero h1 { font-family: var(--f-poster); font-size: clamp(3rem,9vw,6rem); text-transform: uppercase; }
-.page-hero .jp { font-family: var(--f-display); color: var(--gold-2); font-size: clamp(1rem,2.4vw,1.4rem); }
-.crumbs { font-family: var(--f-poster); letter-spacing:.14em; font-size:1rem; color: rgba(251,243,224,.7); margin-bottom:1rem; }
-.crumbs a:hover{ color: var(--gold-2); }
+.page-hero .wrap { position: relative; text-align: center; }
+.page-hero .wrap::after { /* antique gold rule under the title */
+  content:""; display:block; width:min(360px,60%); height:3px; margin:1rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+}
+.page-hero h1 {
+  font-family: var(--f-black); font-weight: 700;
+  font-size: clamp(3.2rem,10vw,6.4rem); line-height: .96;
+  text-transform: uppercase; letter-spacing: .01em;
+  color: var(--teal-2);
+  text-shadow: 2px 2px 0 rgba(27,38,32,.12);
+}
+.page-hero .jp { font-family: var(--f-script); color: var(--teal); font-size: clamp(1.3rem,3vw,2rem); margin-top:.2rem; }
+.crumbs { font-family: var(--f-poster); letter-spacing:.14em; font-size:1rem; color: var(--ink-soft); margin-bottom:1rem; }
+.crumbs a:hover{ color: var(--rust); }
 
 /* ------------------------- Pricing table --------------------------- */
 .price-list { display: grid; gap: 1rem; }
@@ -545,7 +562,8 @@ mark.hl {
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem;
   padding: clamp(3rem,6vw,4.5rem) 0 2rem;
 }
-.site-footer .brand .name { color: var(--paper); }
+.site-footer .brand .name b { color: var(--paper); }
+.site-footer .brand .name i { color: var(--gold-2); }
 .site-footer p { color: rgba(243,231,204,.72); }
 .foot-h { font-family: var(--f-poster); letter-spacing:.14em; font-size:1.15rem; color: var(--gold-2); text-transform: uppercase; margin-bottom:1rem; }
 .foot-links a { display:block; padding:.28rem 0; color: rgba(243,231,204,.8); }
@@ -573,13 +591,12 @@ mark.hl {
 
 /* --- Retro multi-color stripe band (70's racing / poster stripes) --- */
 .retro-stripes {
-  height: 18px;
+  height: 16px;
   border-block: 3px solid var(--ink);
   background: repeating-linear-gradient(90deg,
-    var(--rust)   0 44px,
-    var(--orange) 44px 88px,
-    var(--gold)   88px 132px,
-    var(--teal)   132px 176px);
+    var(--rust)   0 46px,
+    var(--gold)   46px 92px,
+    var(--teal)   92px 138px);
 }
 .retro-stripes--thin { height: 12px; }
 
@@ -685,4 +702,110 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .grid-3, .grid-4, .grid-2, .gallery { grid-template-columns: 1fr; }
   .stats .grid-4 { grid-template-columns: 1fr 1fr; }
   .feature { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   OPENING INTRO — full-screen, distraction-free video splash that fades
+   away to reveal the homepage. No overlay chrome (no buttons/logo/bars)
+   for maximum immersion — tap/click anywhere to skip. Progressive
+   enhancement: the overlay is [hidden] by default and only shown/driven
+   by JS, so no-JS users and crawlers get the homepage directly.
+   ===================================================================== */
+.intro {
+  position: fixed; inset: 0; z-index: 1000;
+  background: #000;
+  display: grid; place-items: center; overflow: hidden;
+  opacity: 1; transition: opacity .9s ease;
+  cursor: pointer;
+}
+.intro[hidden] { display: none; }
+.intro.is-hiding { opacity: 0; pointer-events: none; }
+/* lock scroll while intro is up */
+body.intro-lock { overflow: hidden; }
+
+.intro__video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; background: #000;
+}
+/* On portrait / narrow screens, show the WHOLE video (letterboxed) so it
+   isn't cropped/cut off. Desktop landscape keeps the full-bleed cover. */
+@media (orientation: portrait), (max-width: 640px) {
+  .intro__video { object-fit: contain; }
+}
+
+/* Only-when-needed play button (shown if the browser blocks autoplay).
+   Hidden the rest of the time so nothing distracts from the footage. */
+.intro__tap {
+  position: absolute; z-index: 4; inset: 0; margin: auto;
+  width: 88px; height: 88px; border-radius: 50%;
+  background: rgba(0,0,0,.45); border: 2px solid rgba(255,255,255,.85);
+  color: #fff; font-size: 2.1rem; display: none; place-items: center;
+  backdrop-filter: blur(2px);
+}
+.intro.needs-tap { cursor: default; }
+.intro.needs-tap .intro__tap { display: grid; }
+
+/* =====================================================================
+   SCENE HERO — illustrated roadside-garage top view (SVG scene).
+   ===================================================================== */
+.scene-hero {
+  background: linear-gradient(#7fa9c4, #a9c8d6 55%, #d7e4e2);
+  border-bottom: 3px solid var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+/* Optional raster hero image laid over the SVG scene. If it loads it covers
+   the SVG; if it fails (onerror hides it) the SVG scene shows through as a
+   self-contained fallback. Same 16:9 aspect as the SVG so no crop. */
+.scene-hero .scene-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; display: block; z-index: 2;
+}
+/* Clickable hotspot map over the hero image. The wrapper is locked to the
+   image's aspect ratio so percentage-positioned links always sit exactly on
+   the buttons painted into the artwork, at any screen size. */
+.scene-hero .hero-map { position: relative; width: 100%; aspect-ratio: 2000 / 1125; }
+.scene-hero .hero-map > svg { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; z-index: 1; }
+.scene-hero .hot {
+  position: absolute; z-index: 3; display: block;
+  background: transparent; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* no blue/gold flash on mobile tap */
+}
+/* keyboard-only focus ring for accessibility (never shows on mouse/touch) */
+.scene-hero .hot:focus-visible { outline: 3px solid var(--gold-2); outline-offset: 2px; }
+.scene-hero.hotspot-debug .hot { background: rgba(214,60,40,.38); box-shadow: 0 0 0 2px #fff inset; }
+.scene-hero svg { width: 100%; height: auto; max-height: 90vh; display: block; margin-inline: auto; }
+.scene-hero .nav-txt {
+  font-family: var(--f-poster); fill: #3a2a1c; letter-spacing: 2px;
+  transition: fill .15s;
+}
+.scene-hero a:hover .nav-txt,
+.scene-hero .nav-txt:hover { fill: #b23a28; }
+.scene-hero a { cursor: pointer; }
+.scene-hero .slab { font-family: var(--f-display); }
+.scene-hero .poster { font-family: var(--f-poster); }
+.scene-hero .groovy { font-family: "Bungee", var(--f-poster); }
+.scene-hero .black { font-family: "UnifrakturCook", Georgia, serif; }
+.scene-hero .script { font-family: "Yellowtail", "Segoe Script", cursive; }
+
+/* Homepage only: header floats transparently over the hero image, then
+   turns solid once you scroll into the content below (JS adds .is-solid). */
+.home .site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.home .site-header:not(.is-solid) .brand .name,
+.home .site-header:not(.is-solid) .nav-links > a {
+  text-shadow: 0 1px 3px rgba(255,255,255,.55);
+}
+.home .site-header.is-solid {
+  background: var(--paper);
+  border-bottom-color: var(--ink);
+  box-shadow: 0 6px 20px -14px rgba(36,26,18,.6);
+}
+/* the mobile slide-in panel keeps its own solid background regardless */
+@media (max-width: 720px) {
+  .home .nav-links > a { text-shadow: none; }
 }

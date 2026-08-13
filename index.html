@@ -11,56 +11,234 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Bungee&family=UnifrakturCook:wght@700&family=Yellowtail&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- ============================ HEADER ============================ -->
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="STANDARD DETAILS ホーム">
-      <span class="mark">SD</span>
-      <span class="name"><b>STANDARD</b><i>DETAILS</i></span>
-    </a>
-    <nav class="nav-links" aria-label="メインメニュー">
-      <a href="index.html">Home</a>
-      <a href="service.html">Service</a>
-      <a href="works.html">Works</a>
-      <a href="price.html">Price</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a class="btn btn--gold nav-cta" href="contact.html">予約する <span class="arw">→</span></a>
-    </nav>
-    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
-  </div>
-</header>
+<!-- ========================= OPENING INTRO ======================= -->
+<!-- Full-screen video only. Controlled by JS; hidden by default for
+     no-JS/crawlers. Tap/click anywhere to skip. -->
+<div class="intro" id="intro" hidden>
+  <video class="intro__video" id="introVideo"
+         src="assets/video/opening.mp4"
+         muted playsinline preload="auto" autoplay></video>
+  <button class="intro__tap" id="introTap" aria-label="再生">▶</button>
+</div>
 
-<!-- ============================= HERO ============================= -->
-<section class="hero">
-  <div class="hero__rays" aria-hidden="true"></div>
-  <div class="wrap hero__inner">
-    <div class="hero__copy">
-      <span class="hero__eyebrow">EST. <span class="ph">[創業年]</span> ・ HAND CRAFTED</span>
-      <h1>MAKE IT<br><span class="line2">SHINE.</span></h1>
-      <p class="hero__jp">磨き抜く、という文化。</p>
-      <p class="hero__sub">オールドスクールな手仕事で、あなたの一台を仕上げます。手洗い洗車から本格ポリッシング、ガラスコーティングまで。</p>
-      <div class="hero__cta">
-        <a class="btn btn--lg" href="contact.html">予約・お問い合わせ <span class="arw">→</span></a>
-        <a class="btn btn--ghost btn--lg" href="works.html">施工事例を見る</a>
-      </div>
-    </div>
-    <div class="hero__art halftone" aria-hidden="true">
-      <span class="tag">SINCE '<span class="ph">XX</span></span>
-      <div class="disc"><b>STANDARD<br>DETAILS</b></div>
-      <div class="sticker" style="position:absolute;left:-24px;bottom:-24px;z-index:2">
-        <span class="sticker__txt">手洗<small>100%</small></span>
-      </div>
-    </div>
-  </div>
-  <span class="hero__scroll">▼ SCROLL</span>
+<!-- Header intentionally omitted on the homepage — the hero artwork carries
+     its own clickable navigation (HOME/SERVICE/WORKS/PRICE/ABOUT/CONTACT). -->
+
+<!-- ===================== SCENE HERO (top view) ==================== -->
+<section class="scene-hero">
+<div class="hero-map">
+<!-- Self-hosted raster hero. If it fails to load, it hides itself and the
+     SVG scene below shows as a self-contained fallback. -->
+<img class="scene-img" src="assets/img/hero-top.jpg"
+     alt="STANDARD DETAILS — オートディテイリング＆セラミックコーティング・ペイントプロテクション専門店。セラミックコーティング／ペイントコレクション／内装／ホイール＆ガラス。DETAIL COATING GARAGE。"
+     onerror="this.style.display='none'">
+<!-- Clickable hotspots over the buttons painted into the hero artwork
+     (positions measured from the artwork; % of the 16:9 hero-map). -->
+<a class="hot" href="index.html"   aria-label="ホーム"        style="left:19.3%;top:17.0%;width:9.4%;height:7.3%"></a>
+<a class="hot" href="service.html" aria-label="サービス"       style="left:29.5%;top:17.0%;width:10.1%;height:7.3%"></a>
+<a class="hot" href="works.html"   aria-label="施工事例"       style="left:40.6%;top:17.0%;width:10.0%;height:7.3%"></a>
+<a class="hot" href="price.html"   aria-label="料金"          style="left:51.3%;top:17.0%;width:9.4%;height:7.3%"></a>
+<a class="hot" href="about.html"   aria-label="お店について"    style="left:61.6%;top:17.0%;width:10.3%;height:7.3%"></a>
+<a class="hot" href="contact.html" aria-label="お問い合わせ"    style="left:72.5%;top:17.0%;width:9.3%;height:7.3%"></a>
+<a class="hot" href="https://www.instagram.com/standard_details/" target="_blank" rel="noopener" aria-label="Instagram" style="left:83.5%;top:14.0%;width:10.0%;height:13%;border-radius:50%"></a>
+<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="STANDARD DETAILS — ロードサイド・カーディテイリング・ガレージ。手洗い洗車・磨き・ガラスコーティング専門店。看板にHOME/SERVICE/WORKS/PRICE/ABOUT/CONTACTのメニュー。">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fb0c4"/><stop offset="0.65" stop-color="#b3cdd4"/><stop offset="1" stop-color="#d6e2df"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#93a057"/><stop offset="1" stop-color="#798544"/>
+    </linearGradient>
+    <linearGradient id="doorG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#347062"/><stop offset="1" stop-color="#234f43"/>
+    </linearGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#3a2410" stop-opacity="0.34"/>
+    </radialGradient>
+    <pattern id="halftone" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1" fill="#3a2a1c" opacity="0.09"/>
+    </pattern>
+    <g id="cloud">
+      <ellipse cx="0" cy="0" rx="92" ry="42" fill="#efe9d8"/><ellipse cx="-72" cy="14" rx="60" ry="30" fill="#efe9d8"/>
+      <ellipse cx="72" cy="16" rx="66" ry="30" fill="#efe9d8"/><ellipse cx="-20" cy="-24" rx="52" ry="30" fill="#f7f2e4"/>
+      <ellipse cx="34" cy="-14" rx="46" ry="28" fill="#f7f2e4"/><ellipse cx="0" cy="26" rx="122" ry="22" fill="#e6ddc6"/>
+    </g>
+    <g id="pole">
+      <rect x="-6" y="0" width="12" height="330" fill="#4a3625" stroke="#2c1c12" stroke-width="3"/>
+      <rect x="-60" y="36" width="120" height="11" fill="#4a3625" stroke="#2c1c12" stroke-width="3"/>
+      <rect x="-44" y="60" width="88" height="9" fill="#4a3625" stroke="#2c1c12" stroke-width="3"/>
+    </g>
+    <g id="fl" stroke="#b8912f" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M0 0 C 34 -18 78 -18 104 0 C 78 7 52 5 34 -3"/><path d="M104 0 C 130 -12 156 -8 170 5"/>
+      <circle cx="0" cy="0" r="4" fill="#a83a22" stroke="none"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="640" fill="url(#sky)"/>
+  <use href="#cloud" x="300" y="150" transform="scale(1.05)" opacity=".95"/>
+  <use href="#cloud" x="1180" y="120"/><use href="#cloud" x="70" y="250" transform="scale(.8)"/>
+  <use href="#cloud" x="1450" y="250" transform="scale(.7)"/>
+
+  <rect x="0" y="600" width="1600" height="300" fill="url(#grass)"/>
+  <path d="M0 640 Q 800 610 1600 640 L1600 900 L0 900 Z" fill="#8a9650"/>
+
+  <g transform="translate(70 320) scale(.9)"><use href="#pole"/></g>
+  <g transform="translate(1540 330) scale(.85)"><use href="#pole"/></g>
+
+  <!-- TOP RIBBON BANNER -->
+  <g>
+    <rect x="360" y="26" width="880" height="86" rx="14" fill="#efe6cc" stroke="#2c1c12" stroke-width="5"/>
+    <rect x="372" y="38" width="856" height="62" rx="9" fill="none" stroke="#b8912f" stroke-width="2"/>
+    <text x="560" y="62" text-anchor="middle" class="poster" fill="#2c1c12" font-size="30" letter-spacing="3">STANDARD DETAILS</text>
+    <text x="560" y="88" text-anchor="middle" class="poster" fill="#a83a22" font-size="15" letter-spacing="2">WWW.STANDARD-DETAILS.COM</text>
+    <circle cx="800" cy="69" r="48" fill="#2c6b57" stroke="#2c1c12" stroke-width="5"/>
+    <circle cx="800" cy="69" r="37" fill="none" stroke="#efe6cc" stroke-width="2.5" stroke-dasharray="4 5"/>
+    <text x="800" y="81" text-anchor="middle" class="slab" fill="#efe6cc" font-size="28">SD</text>
+    <text x="1035" y="58" text-anchor="middle" class="poster" fill="#2c1c12" font-size="22" letter-spacing="1">DETAILING &amp; COATING</text>
+    <text x="1035" y="86" text-anchor="middle" class="script" fill="#2c6b57" font-size="25">Hand Wash Specialist</text>
+    <rect x="694" y="120" width="212" height="26" rx="13" fill="#a83a22" stroke="#2c1c12" stroke-width="3"/>
+    <text x="800" y="138" text-anchor="middle" class="poster" fill="#efe6cc" font-size="14" letter-spacing="3">PROUDLY ESTABLISHED 20XX</text>
+  </g>
+
+  <!-- LEFT VERTICAL SIGN -->
+  <g>
+    <rect x="228" y="150" width="9" height="470" fill="#2c1c12"/>
+    <circle cx="232" cy="158" r="46" fill="#2c6b57" stroke="#2c1c12" stroke-width="5"/>
+    <circle cx="232" cy="158" r="35" fill="none" stroke="#efe6cc" stroke-width="2.5" stroke-dasharray="4 5"/>
+    <text x="232" y="170" text-anchor="middle" class="slab" fill="#efe6cc" font-size="30">SD</text>
+    <rect x="186" y="212" width="92" height="30" rx="5" fill="#a83a22" stroke="#2c1c12" stroke-width="4"/>
+    <text x="232" y="234" text-anchor="middle" class="script" fill="#efe6cc" font-size="20">All Aspects</text>
+    <rect x="184" y="250" width="46" height="330" rx="6" fill="#a83a22" stroke="#2c1c12" stroke-width="4"/>
+    <rect x="234" y="250" width="46" height="330" rx="6" fill="#2c6b57" stroke="#2c1c12" stroke-width="4"/>
+    <g class="slab" fill="#f2e7cf" font-size="33" text-anchor="middle">
+      <text x="207" y="292">D</text><text x="207" y="336">E</text><text x="207" y="380">T</text>
+      <text x="207" y="424">A</text><text x="207" y="468">I</text><text x="207" y="512">L</text>
+    </g>
+    <g class="slab" fill="#f2e7cf" font-size="33" text-anchor="middle">
+      <text x="257" y="292">G</text><text x="257" y="336">A</text><text x="257" y="380">R</text>
+      <text x="257" y="424">A</text><text x="257" y="468">G</text><text x="257" y="512">E</text>
+    </g>
+    <path d="M182 590 L282 590 L282 616 L300 628 L282 640 L282 664 L182 664 Z" fill="#c8912f" stroke="#2c1c12" stroke-width="4"/>
+    <text x="228" y="620" text-anchor="middle" class="script" fill="#2c1c12" font-size="18">Custom</text>
+    <text x="228" y="648" text-anchor="middle" class="script" fill="#2c1c12" font-size="18">Quality</text>
+  </g>
+
+  <!-- MAIN BILLBOARD -->
+  <g>
+    <rect x="404" y="366" width="16" height="290" fill="#6e4a30" stroke="#2c1c12" stroke-width="3"/>
+    <rect x="1204" y="366" width="16" height="290" fill="#6e4a30" stroke="#2c1c12" stroke-width="3"/>
+    <rect x="360" y="150" width="904" height="416" rx="12" fill="#efe6cc" stroke="#2c1c12" stroke-width="7"/>
+    <rect x="374" y="164" width="876" height="388" rx="7" fill="none" stroke="#b8912f" stroke-width="2.5"/>
+    <rect x="360" y="150" width="904" height="416" rx="12" fill="url(#halftone)"/>
+    <g class="nav-txt" font-size="27" text-anchor="middle">
+      <a href="index.html"><text x="458" y="212">HOME</text></a>
+      <a href="service.html"><text x="598" y="212">SERVICE</text></a>
+      <a href="works.html"><text x="740" y="212">WORKS</text></a>
+      <a href="price.html"><text x="866" y="212">PRICE</text></a>
+      <a href="about.html"><text x="992" y="212">ABOUT</text></a>
+      <a href="contact.html"><text x="1150" y="212">CONTACT</text></a>
+    </g>
+    <g fill="#c8912f" font-size="18" text-anchor="middle" class="poster">
+      <text x="528" y="211">&#10022;</text><text x="669" y="211">&#10022;</text><text x="803" y="211">&#10022;</text><text x="929" y="211">&#10022;</text><text x="1071" y="211">&#10022;</text>
+    </g>
+    <line x1="400" y1="230" x2="1224" y2="230" stroke="#c8912f" stroke-width="2"/>
+    <text x="700" y="372" text-anchor="middle" class="black" fill="#241a12" font-size="104" letter-spacing="1">STANDARD</text>
+    <text x="700" y="446" text-anchor="middle" class="script" fill="#2c6b57" font-size="82" stroke="#173b32" stroke-width="0.6">Details</text>
+    <use href="#fl" x="470" y="404"/>
+    <text x="452" y="502" class="script" fill="#2c1c12" font-size="42" transform="rotate(-4 452 502)">Our Work</text>
+    <text x="430" y="532" class="poster" fill="#a83a22" font-size="17" letter-spacing="2">&#9670; SPEAKS FOR ITSELF &#9670;</text>
+    <path d="M640 548 Q 800 482 960 548 Z" fill="#2c6b57"/>
+    <g transform="translate(710 470) scale(.54)">
+      <path d="M20 70 L40 30 Q60 6 130 6 L220 6 Q280 6 300 40 L330 62 Q356 66 356 92 L356 110 L8 110 L8 92 Q8 74 20 70 Z" fill="#20302a" stroke="#2c1c12" stroke-width="6"/>
+      <path d="M64 34 Q78 16 128 16 L196 16 L204 60 L52 60 Z" fill="#9fb7b0" stroke="#2c1c12" stroke-width="5"/>
+      <circle cx="86" cy="112" r="30" fill="#2c1c12"/><circle cx="86" cy="112" r="12" fill="#c9b487"/>
+      <circle cx="286" cy="112" r="30" fill="#2c1c12"/><circle cx="286" cy="112" r="12" fill="#c9b487"/>
+    </g>
+    <line x1="1000" y1="256" x2="1000" y2="540" stroke="#c8912f" stroke-width="2"/>
+    <g class="poster" font-size="25" fill="#241a12" letter-spacing="1">
+      <text x="1020" y="300">&#9656; HAND WASH</text>
+      <text x="1020" y="340">&#9656; POLISHING</text>
+      <text x="1020" y="380">&#9656; COATING</text>
+      <text x="1020" y="420">&#9656; INTERIOR</text>
+      <text x="1020" y="460">&#9656; HEADLIGHT</text>
+    </g>
+    <text x="1020" y="510" class="poster" fill="#2c6b57" font-size="27" letter-spacing="1">PREMIUM QUALITY</text>
+    <text x="1020" y="536" class="poster" fill="#6e4a30" font-size="19" letter-spacing="1">CUSTOM WORK</text>
+  </g>
+
+  <!-- GARAGE BUILDING -->
+  <g>
+    <rect x="612" y="612" width="404" height="24" fill="#6e4a30" stroke="#2c1c12" stroke-width="4"/>
+    <rect x="626" y="636" width="376" height="230" fill="#e2d3ad" stroke="#2c1c12" stroke-width="4"/>
+    <rect x="626" y="636" width="376" height="44" fill="#efe6cc" stroke="#2c1c12" stroke-width="4"/>
+    <text x="814" y="668" text-anchor="middle" class="slab" fill="#a83a22" font-size="24" letter-spacing="1">STANDARD DETAILS</text>
+    <text x="814" y="700" text-anchor="middle" class="poster" fill="#2c6b57" font-size="16" letter-spacing="3">&#9670; DETAIL GARAGE &#9670;</text>
+    <rect x="648" y="714" width="150" height="152" fill="url(#doorG)" stroke="#2c1c12" stroke-width="4"/>
+    <rect x="830" y="714" width="150" height="152" fill="url(#doorG)" stroke="#2c1c12" stroke-width="4"/>
+    <g stroke="#173b32" stroke-width="2.5">
+      <line x1="648" y1="746" x2="798" y2="746"/><line x1="648" y1="784" x2="798" y2="784"/><line x1="648" y1="822" x2="798" y2="822"/>
+      <line x1="830" y1="746" x2="980" y2="746"/><line x1="830" y1="784" x2="980" y2="784"/><line x1="830" y1="822" x2="980" y2="822"/>
+    </g>
+    <text x="723" y="800" text-anchor="middle" class="poster" fill="#eafcf5" font-size="22" opacity=".85">WASH</text>
+    <text x="905" y="800" text-anchor="middle" class="poster" fill="#eafcf5" font-size="22" opacity=".85">POLISH</text>
+  </g>
+  <g transform="translate(560 730) scale(.9)">
+    <rect x="0" y="0" width="52" height="130" rx="7" fill="#a83a22" stroke="#2c1c12" stroke-width="4"/>
+    <rect x="9" y="14" width="34" height="34" fill="#efe6cc" stroke="#2c1c12" stroke-width="3"/>
+    <circle cx="26" cy="72" r="12" fill="#e2a026" stroke="#2c1c12" stroke-width="3"/>
+  </g>
+  <g transform="translate(1016 738) scale(.86)">
+    <rect x="0" y="0" width="52" height="130" rx="7" fill="#2c6b57" stroke="#2c1c12" stroke-width="4"/>
+    <rect x="9" y="14" width="34" height="34" fill="#efe6cc" stroke="#2c1c12" stroke-width="3"/>
+    <circle cx="26" cy="72" r="12" fill="#e2a026" stroke="#2c1c12" stroke-width="3"/>
+  </g>
+
+  <!-- BADGES -->
+  <a href="https://www.instagram.com/standard_details/" target="_blank" rel="noopener" aria-label="Instagram @standard_details">
+  <g transform="translate(1352 202)">
+    <g fill="#efe6cc" stroke="#2c1c12" stroke-width="3">
+      <g id="sc"><circle cx="0" cy="-56" r="12"/></g>
+      <use href="#sc" transform="rotate(40)"/><use href="#sc" transform="rotate(80)"/><use href="#sc" transform="rotate(120)"/>
+      <use href="#sc" transform="rotate(160)"/><use href="#sc" transform="rotate(200)"/><use href="#sc" transform="rotate(240)"/>
+      <use href="#sc" transform="rotate(280)"/><use href="#sc" transform="rotate(320)"/>
+    </g>
+    <circle r="56" fill="#efe6cc" stroke="#2c1c12" stroke-width="4"/>
+    <text y="-12" text-anchor="middle" class="script" fill="#a83a22" font-size="30">Follow</text>
+    <text y="8" text-anchor="middle" class="poster" fill="#2c1c12" font-size="16" letter-spacing="2">ON</text>
+    <text y="34" text-anchor="middle" class="script" fill="#2c6b57" font-size="26">Instagram</text>
+  </g>
+  </a>
+  <g transform="translate(1474 306)">
+    <g fill="#a83a22" stroke="#2c1c12" stroke-width="2">
+      <g id="bc"><rect x="-5" y="-44" width="10" height="11"/></g>
+      <use href="#bc" transform="rotate(24)"/><use href="#bc" transform="rotate(48)"/><use href="#bc" transform="rotate(72)"/>
+      <use href="#bc" transform="rotate(96)"/><use href="#bc" transform="rotate(120)"/><use href="#bc" transform="rotate(144)"/>
+      <use href="#bc" transform="rotate(168)"/><use href="#bc" transform="rotate(192)"/><use href="#bc" transform="rotate(216)"/>
+      <use href="#bc" transform="rotate(240)"/><use href="#bc" transform="rotate(264)"/><use href="#bc" transform="rotate(288)"/>
+      <use href="#bc" transform="rotate(312)"/><use href="#bc" transform="rotate(336)"/>
+    </g>
+    <circle r="38" fill="#a83a22" stroke="#2c1c12" stroke-width="3"/>
+    <circle r="30" fill="none" stroke="#efe6cc" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="-4" text-anchor="middle" class="poster" fill="#efe6cc" font-size="14" letter-spacing="2">SINCE</text>
+    <text y="18" text-anchor="middle" class="slab" fill="#efe6cc" font-size="20">20XX</text>
+  </g>
+  <g transform="translate(1512 762)">
+    <rect x="-34" y="0" width="68" height="110" rx="8" fill="#efe6cc" stroke="#2c1c12" stroke-width="4"/>
+    <text x="0" y="30" text-anchor="middle" class="poster" fill="#a83a22" font-size="20" letter-spacing="2">EST</text>
+    <text x="0" y="64" text-anchor="middle" class="slab" fill="#2c1c12" font-size="24">20</text>
+    <text x="0" y="98" text-anchor="middle" class="slab" fill="#2c1c12" font-size="24">XX</text>
+  </g>
+
+  <rect x="0" y="0" width="1600" height="900" fill="#6b4a1e" opacity=".055" pointer-events="none" style="mix-blend-mode:multiply"/>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#vig)" pointer-events="none"/>
+</svg>
+</div>
 </section>
-
 <!-- ===================== RETRO STRIPE BAND ======================= -->
 <div class="retro-stripes" aria-hidden="true"></div>
 

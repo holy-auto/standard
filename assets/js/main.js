@@ -59,6 +59,106 @@
     });
   }
 
+  /* ---- Opening intro (video splash -> homepage) ---- */
+  var intro = document.getElementById("intro");
+  if (intro) {
+    var video = document.getElementById("introVideo");
+    var seenKey = "sd_intro_seen";
+    var seen = false;
+    try { seen = sessionStorage.getItem(seenKey) === "1"; } catch (e) {}
+
+    if (seen) {
+      // Already watched this session — skip straight to the homepage.
+      intro.parentNode && intro.parentNode.removeChild(intro);
+    } else {
+      var dismissed = false;
+      var dismiss = function () {
+        if (dismissed) return;
+        dismissed = true;
+        try { sessionStorage.setItem(seenKey, "1"); } catch (e) {}
+        intro.classList.add("is-hiding");
+        body.classList.remove("intro-lock");
+        window.setTimeout(function () {
+          intro.hidden = true;
+          if (video) { try { video.pause(); } catch (e) {} }
+          var h1 = document.querySelector(".hero h1");
+          if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); }
+        }, 950);
+      };
+
+      // Reveal + lock scroll
+      intro.hidden = false;
+      body.classList.add("intro-lock");
+
+      var tap = document.getElementById("introTap");
+
+      if (video) {
+        var started = false;
+        var startPlayback = function () {
+          var pr = video.play();
+          if (pr && typeof pr.catch === "function") {
+            pr.catch(function () {
+              // Autoplay blocked -> show the only affordance, a play button
+              if (!started && !dismissed) { intro.classList.add("needs-tap"); }
+            });
+          }
+        };
+
+        video.addEventListener("playing", function () {
+          started = true;
+          intro.classList.remove("needs-tap");
+        });
+        // Auto-advance when the clip finishes
+        video.addEventListener("ended", dismiss);
+        // If the video can't load/decode, don't trap the visitor
+        video.addEventListener("error", dismiss);
+
+        // Tap/click ANYWHERE skips once playing; before playback it starts it
+        intro.addEventListener("click", function () {
+          if (started) { dismiss(); }
+          else { intro.classList.remove("needs-tap"); startPlayback(); }
+        });
+
+        // Kick off muted autoplay as soon as possible
+        startPlayback();
+
+        // Bail fast only if the source is genuinely unsupported/missing
+        if (video.error || video.networkState === 3 /* NO_SOURCE */) { dismiss(); }
+
+        // Auto-advance safety: once we know the length, cap the intro to it
+        video.addEventListener("loadedmetadata", function () {
+          var ms = (isFinite(video.duration) ? video.duration : 15) * 1000 + 2000;
+          window.setTimeout(dismiss, ms);
+        });
+
+        // Last-resort watchdog: if NO data has loaded at all after 12s
+        // (broken file / offline), reveal the site rather than hang.
+        // A slow-but-buffering video (readyState >= 1) is left to play.
+        window.setTimeout(function () {
+          if (!started && video.readyState === 0) { dismiss(); }
+        }, 12000);
+      } else {
+        dismiss();
+      }
+    }
+  }
+
+  /* ---- Homepage transparent header -> solid on scroll ---- */
+  if (body.classList.contains("home")) {
+    var header = document.querySelector(".site-header");
+    var hero = document.querySelector(".scene-hero");
+    if (header && hero) {
+      var onScroll = function () {
+        var trigger = hero.offsetHeight - header.offsetHeight - 8;
+        if (window.scrollY > trigger) header.classList.add("is-solid");
+        else header.classList.remove("is-solid");
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    }
+  }
+
   /* ---- Footer year ---- */
   var y = document.querySelector("[data-year]");
   if (y) { y.textContent = new Date().getFullYear(); }
