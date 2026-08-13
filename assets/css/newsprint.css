@@ -31,33 +31,40 @@ body.newsprint .retro-stripes { display: none; }   /* replaced by masthead */
 /* ---- the newsprint sheet ---- */
 .paper {
   max-width: 1040px; margin: 0 auto; position: relative;
-  /* warm newsprint stock with faint uneven tint (foxing / ink absorption) */
+  /* aged, unevenly yellowed newsprint stock */
   background-color: var(--news-paper);
   background-image:
-    radial-gradient(60% 45% at 15% 8%,  rgba(150,120,60,.10), transparent 60%),
-    radial-gradient(50% 40% at 88% 22%, rgba(120,110,70,.10), transparent 60%),
-    radial-gradient(70% 55% at 70% 95%, rgba(140,110,55,.09), transparent 60%);
+    radial-gradient(55% 40% at 12% 6%,  rgba(150,115,45,.17), transparent 60%),
+    radial-gradient(45% 35% at 90% 16%, rgba(120,100,50,.15), transparent 60%),
+    radial-gradient(65% 50% at 72% 96%, rgba(140,105,45,.16), transparent 60%),
+    radial-gradient(42% 32% at 28% 58%, rgba(120,95,40,.11), transparent 60%),
+    linear-gradient(180deg, rgba(190,160,90,.12), transparent 26%, transparent 72%, rgba(150,120,55,.16));
   padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1.1rem, 3.5vw, 3rem) 0;
   box-shadow:
     0 30px 60px -30px rgba(0,0,0,.6),
-    0 2px 0 rgba(255,255,255,.35) inset;     /* thin lit top edge */
-  border-inline: 1px solid rgba(28,27,21,.25);
+    0 2px 0 rgba(255,255,255,.3) inset;      /* thin lit top edge */
+  border-inline: 1px solid rgba(28,27,21,.3);
 }
-.paper::before { /* aged newsprint grain + paper fibre, two scales */
+.paper::before { /* grain + paper fibre + halftone print screen */
   content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  opacity: .14; mix-blend-mode: multiply;
+  opacity: .2; mix-blend-mode: multiply;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.006' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
-  background-size: 120px 120px, 340px 340px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.006' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 50% 50%, rgba(20,18,12,.5) 22%, transparent 28%);
+  background-size: 120px 120px, 340px 340px, 3px 3px;
 }
-.paper::after { /* aged edge vignette — darker, worn borders */
+.paper::after { /* sparse foxing spots, fold crease, worn dark edges */
   content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
   mix-blend-mode: multiply;
-  background:
-    linear-gradient(to right,  rgba(60,50,25,.16), transparent 4%, transparent 96%, rgba(60,50,25,.16)),
-    linear-gradient(to bottom, rgba(60,50,25,.10), transparent 3%, transparent 92%, rgba(60,50,25,.22)),
-    radial-gradient(130% 120% at 50% 45%, transparent 62%, rgba(60,48,22,.18));
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='520'%20height='520'%3E%3Cfilter%20id='s'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.09'%20numOctaves='2'%20seed='11'/%3E%3CfeColorMatrix%20values='0%200%200%200%200.36%200%200%200%200%200.24%200%200%200%200%200.09%200%200%200%201.3%20-1.02'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23s)'/%3E%3C/svg%3E"),
+    linear-gradient(90deg, transparent 49.4%, rgba(60,48,22,.07) 50%, transparent 50.6%),
+    linear-gradient(to right,  rgba(50,40,18,.2), transparent 5%, transparent 95%, rgba(50,40,18,.2)),
+    linear-gradient(to bottom, rgba(50,40,18,.12), transparent 3%, transparent 90%, rgba(50,40,18,.26)),
+    radial-gradient(135% 120% at 48% 42%, transparent 60%, rgba(45,36,16,.2));
+  background-size: 520px 520px, auto, auto, auto, auto;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
 .paper > * { position: relative; z-index: 1; }
 
