@@ -15,7 +15,12 @@
 }
 
 body.newsprint {
-  background: #cfc7b1;                 /* desk behind the sheet */
+  /* dark textured desk behind the sheet so the paper reads as a physical object */
+  background-color: #b7ad93;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)' opacity='0.5'/%3E%3C/svg%3E"),
+    radial-gradient(120% 90% at 50% 0%, #c6bda3 0%, #b1a88e 55%, #9e957c 100%);
+  background-blend-mode: multiply, normal;
   color: var(--news-ink);
   font-family: "Old Standard TT", Georgia, "Times New Roman", serif;
 }
@@ -26,15 +31,33 @@ body.newsprint .retro-stripes { display: none; }   /* replaced by masthead */
 /* ---- the newsprint sheet ---- */
 .paper {
   max-width: 1040px; margin: 0 auto; position: relative;
-  background: var(--news-paper);
+  /* warm newsprint stock with faint uneven tint (foxing / ink absorption) */
+  background-color: var(--news-paper);
+  background-image:
+    radial-gradient(60% 45% at 15% 8%,  rgba(150,120,60,.10), transparent 60%),
+    radial-gradient(50% 40% at 88% 22%, rgba(120,110,70,.10), transparent 60%),
+    radial-gradient(70% 55% at 70% 95%, rgba(140,110,55,.09), transparent 60%);
   padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1.1rem, 3.5vw, 3rem) 0;
-  box-shadow: 0 30px 60px -30px rgba(0,0,0,.6);
+  box-shadow:
+    0 30px 60px -30px rgba(0,0,0,.6),
+    0 2px 0 rgba(255,255,255,.35) inset;     /* thin lit top edge */
   border-inline: 1px solid rgba(28,27,21,.25);
 }
-.paper::before { /* aged newsprint grain */
+.paper::before { /* aged newsprint grain + paper fibre, two scales */
   content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  opacity: .06; mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .14; mix-blend-mode: multiply;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.006' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-size: 120px 120px, 340px 340px;
+}
+.paper::after { /* aged edge vignette — darker, worn borders */
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  mix-blend-mode: multiply;
+  background:
+    linear-gradient(to right,  rgba(60,50,25,.16), transparent 4%, transparent 96%, rgba(60,50,25,.16)),
+    linear-gradient(to bottom, rgba(60,50,25,.10), transparent 3%, transparent 92%, rgba(60,50,25,.22)),
+    radial-gradient(130% 120% at 50% 45%, transparent 62%, rgba(60,48,22,.18));
 }
 .paper > * { position: relative; z-index: 1; }
 
