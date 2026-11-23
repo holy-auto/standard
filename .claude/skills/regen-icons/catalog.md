@@ -1,0 +1,231 @@
+# Regen Icons catalog
+
+225 outline icons. `●` = filled twin available (`svg/filled/<name>.svg`).
+
+Columns: name · React export · categories · keywords
+
+- `accessibility` ● · IconAccessibility · status/content · a11y, inclusive, assistive, disability, wcag, person
+- `activity` · IconActivity · agent/status · log, pulse, events, history, timeline, health
+- `adjustments` ● · IconAdjustments · controls · settings, sliders, filters, tune, preferences
+- `agent` ● · IconAgent · agent · bot, assistant, robot, automation, AI
+- `alert-triangle` ● · IconAlertTriangle · status · warning, caution, alert, danger
+- `align-center` · IconAlignCenter · controls · paragraph, lines, align, text, centre
+- `align-justify` · IconAlignJustify · controls/content · text, paragraph, formatting, alignment
+- `align-left` · IconAlignLeft · content/controls · paragraph, lines, align, notes, description
+- `align-right` · IconAlignRight · controls/content · text, paragraph, formatting, alignment
+- `archive` ● · IconArchive · content · storage, box, file, save
+- `arrow-down-left` · IconArrowDownLeft · navigation · diagonal, southwest, lower left
+- `arrow-down-right` · IconArrowDownRight · navigation · diagonal, southeast, lower right
+- `arrow-down` · IconArrowDown · navigation · down, decrease, falling, trend
+- `arrow-left` · IconArrowLeft · navigation · back, previous, return
+- `arrow-right` · IconArrowRight · navigation · next, forward, continue
+- `arrow-up-left` · IconArrowUpLeft · navigation · back, previous, diagonal, northwest
+- `arrow-up-right` · IconArrowUpRight · navigation · external, open, link, outbound
+- `arrow-up` · IconArrowUp · navigation · up, increase, rising, trend
+- `arrows-sort` · IconArrowsSort · controls/navigation · order, ascending, descending, rank, reorder
+- `at-sign` · IconAtSign · content/controls · email, mention, address, contact
+- `battery-full` · IconBatteryFull · status · charge, charged, power, energy
+- `battery-low` · IconBatteryLow · status · charge, empty, power, energy
+- `battery` ● · IconBattery · status · charge, energy, level, power
+- `bell-off` · IconBellOff · controls/status · mute, silent, alerts off, do not disturb
+- `bell` · IconBell · controls · alert, notify, ring, reminder
+- `bold` · IconBold · controls · text, weight, strong, toolbar
+- `book` ● · IconBook · content/entry-types · read, guide, documentation, knowledge, wiki, manual
+- `bookmark-minus` ● · IconBookmarkMinus · actions/content · remove, unsave, read later
+- `bookmark-plus` ● · IconBookmarkPlus · actions/content · save, add, read later
+- `bookmark` ● · IconBookmark · actions/content · save, read later, flag, pin, collection
+- `bug` ● · IconBug · status/content · defect, issue, error, debug, fault
+- `bulb` · IconBulb · entry-types/content · concept, light, insight, tip
+- `calendar-check` ● · IconCalendarCheck · content/status · scheduled, confirmed, appointment, booking
+- `calendar-minus` ● · IconCalendarMinus · actions/content · date, remove, cancel, appointment
+- `calendar-plus` ● · IconCalendarPlus · actions/content · date, add, new, appointment
+- `calendar-x` ● · IconCalendarX · actions/content · date, cancel, remove, appointment, error
+- `calendar` ● · IconCalendar · content/controls · date, schedule, month, day, when
+- `camera` ● · IconCamera · content/controls · photo, capture, screenshot, shoot, lens
+- `chart-bar` ● · IconChartBar · entry-types/content · chart, bars, analytics, measure, stats
+- `chart-line` · IconChartLine · content/entry-types · analytics, trend, graph, metric, data
+- `chart-pie` ● · IconChartPie · content/entry-types · analytics, share, proportion, graph, metric, data
+- `check` · IconCheck · actions · tick, done, confirm, selected
+- `chevron-down` · IconChevronDown · navigation · expand, open, select, caret
+- `chevron-left` · IconChevronLeft · navigation · previous, back, caret
+- `chevron-right` · IconChevronRight · navigation · next, forward, caret, disclosure
+- `chevron-up` · IconChevronUp · navigation · collapse, close, caret
+- `chevrons-up-down` · IconChevronsUpDown · navigation/controls · select, sort, expand, combobox, caret, picker
+- `circle-alert` ● · IconCircleAlert · status · error, danger, problem, failed, exclamation
+- `circle-arrow-down` ● · IconCircleArrowDown · navigation · down, bottom, direction
+- `circle-arrow-left` ● · IconCircleArrowLeft · navigation · back, previous, direction
+- `circle-arrow-right` ● · IconCircleArrowRight · agent/navigation · handoff, continue, forward, next step, delegate
+- `circle-arrow-up` ● · IconCircleArrowUp · navigation · up, top, direction
+- `circle-check` ● · IconCircleCheck · status · success, done, complete, verified
+- `circle-frame` ● · IconCircleFrame · shapes · ring, frame, base
+- `circle-minus` ● · IconCircleMinus · status · remove, subtract, block, unavailable
+- `circle-pause` ● · IconCirclePause · actions/controls · media, hold, pause, playback
+- `circle-play` ● · IconCirclePlay · actions/controls · media, start, run, playback
+- `circle-plus` ● · IconCirclePlus · actions/status · create, new, positive, badge
+- `circle-record` ● · IconCircleRecord · controls/actions · media, capture, record, recording
+- `circle-stop` ● · IconCircleStop · controls/actions · media, end, stop, recording
+- `circle-x` ● · IconCircleX · actions/status · close, cancel, clear, remove, error, badge
+- `clipboard-check` ● · IconClipboardCheck · content/status · task, complete, checklist, reviewed
+- `clipboard` ● · IconClipboard · actions/content · paste, task, checklist, brief, copy
+- `clock` ● · IconClock · status/content · time, duration, recent, history, wait, latency
+- `cloud-download` · IconCloudDownload · actions/content · save, sync, storage, fetch
+- `cloud-upload` · IconCloudUpload · actions/content · backup, sync, storage, transfer
+- `cloud` ● · IconCloud · content/status · online, hosting, sync, storage
+- `code` · IconCode · content · brackets, developer, source, snippet, markup
+- `columns` ● · IconColumns · content · layout, grid, split, panes, three column
+- `command` ● · IconCommand · controls · keyboard, modifier, cmd, meta, mac
+- `compass` ● · IconCompass · navigation · direction, explore, bearing, navigate
+- `contrast` ● · IconContrast · status/content · colour, color, ratio, legibility, theme, half
+- `copy` ● · IconCopy · actions · duplicate, clipboard, clone
+- `corner-down-left` · IconCornerDownLeft · navigation/controls · enter, return, keyboard, submit, newline
+- `credit-card` ● · IconCreditCard · content · payment, billing, checkout, purchase
+- `crop` · IconCrop · actions/controls · image, trim, resize, photo
+- `cube` ● · IconCube · agent · model, package, box, 3d, module
+- `cursor` ● · IconCursor · controls · mouse, click, select, arrow, input
+- `database` ● · IconDatabase · agent/content · memory, store, recall, data, storage, persist
+- `diamond` ● · IconDiamond · shapes · decision, rhombus, flowchart
+- `dots` ● · IconDots · agent/status · streaming, typing, more, ellipsis, waiting, menu
+- `download` · IconDownload · actions · save, export, get, arrow down tray
+- `external-link` · IconExternalLink · navigation/actions · open, new tab, outbound, away, leave
+- `eye-off` · IconEyeOff · agent/controls · hide, invisible, private, conceal, preview off
+- `eye` ● · IconEye · agent/controls · review, needs review, watch, visible, preview, show
+- `file-check` ● · IconFileCheck · content/status · document, complete, reviewed, verified
+- `file-minus` ● · IconFileMinus · content/actions · document, remove, delete, page
+- `file-plus` ● · IconFilePlus · actions/content · document, page, create, add, new
+- `file-text` ● · IconFileText · content/entry-types · file, page, article, worked example, text
+- `file-x` ● · IconFileX · content/status · document, rejected, error, cancel
+- `filter` ● · IconFilter · controls/navigation · funnel, narrow, refine, facets, sort
+- `flag` ● · IconFlag · status/actions · milestone, report, mark, issue, raise
+- `folder-check` ● · IconFolderCheck · content/status · directory, complete, reviewed, verified
+- `folder-minus` ● · IconFolderMinus · content/actions · directory, remove, delete, collection
+- `folder-plus` ● · IconFolderPlus · actions/content · directory, collection, create, add, new
+- `folder-x` ● · IconFolderX · content/status · directory, rejected, error, cancel
+- `folder` ● · IconFolder · content · directory, collection, empty, files
+- `git-branch` ● · IconGitBranch · content/actions · version, variant, fork, git, revision, alternative
+- `globe` ● · IconGlobe · content/status · web, world, language, locale, internationalisation, public
+- `grip` ● · IconGrip · controls · drag, handle, reorder, move, dots
+- `hammer` ● · IconHammer · actions/content · tool, build, repair, construction, mallet
+- `hash` · IconHash · content/navigation · number, tag, anchor, heading, channel, id
+- `headphones` ● · IconHeadphones · controls · audio, listen, support, music
+- `heart` ● · IconHeart · actions/status · favorite, like, love, saved
+- `help-circle` ● · IconHelpCircle · status/entry-types · question, support, question bank, faq
+- `home` · IconHome · navigation · house, overview, start, dashboard
+- `inbox` ● · IconInbox · content · tray, messages, queue, incoming
+- `indent-decrease` · IconIndentDecrease · controls/content · text, paragraph, formatting, nesting
+- `indent-increase` · IconIndentIncrease · controls/content · text, paragraph, formatting, nesting
+- `info-circle` ● · IconInfoCircle · status · information, help, note
+- `italic` · IconItalic · controls · text, emphasis, toolbar
+- `key` ● · IconKey · agent/status · secret, token, api key, auth, access, password
+- `keyboard` ● · IconKeyboard · content/controls · input, typing, keys, shortcut
+- `laptop` ● · IconLaptop · content/controls · computer, device, desktop, notebook, screen
+- `layers` ● · IconLayers · agent/content · context, stack, window, sources, levels
+- `layout-grid-add` ● · IconLayoutGridAdd · content · registry, add, new tile, install
+- `layout-grid` ● · IconLayoutGrid · content/entry-types · pattern, tiles, cards, layout, apps
+- `letter-a` · IconLetterA · content/controls · type, font, text, typeface, scale, letter
+- `link` · IconLink · actions/content · chain, url, anchor, connect, permalink
+- `list-check` · IconListCheck · content/entry-types · checklist, tasks, method, steps, todo
+- `list` · IconList · content · bullets, items, rows
+- `lock` ● · IconLock · agent/status · permission, locked, secure, private, access, scope
+- `log-in` · IconLogIn · actions/navigation · account, session, sign in
+- `log-out` · IconLogOut · actions/navigation · account, session, sign out
+- `mail-check` ● · IconMailCheck · content/status · email, delivered, verified, confirmed
+- `mail-open` ● · IconMailOpen · content/status · email, read, envelope, inbox
+- `mail` ● · IconMail · content/controls · email, message, inbox, envelope, contact
+- `map` ● · IconMap · content/navigation · location, directions, geography, places
+- `maximize` · IconMaximize · controls/actions · fullscreen, enlarge, corners, grow, open
+- `menu` · IconMenu · navigation · hamburger, navigation, lines
+- `message-check` ● · IconMessageCheck · status/content · chat, read, delivered, resolved
+- `message-minus` ● · IconMessageMinus · content/actions · chat, remove, conversation, delete
+- `message-plus` ● · IconMessagePlus · actions/content · chat, new, compose, conversation
+- `message-x` ● · IconMessageX · status/content · chat, error, rejected, cancel
+- `message` ● · IconMessage · content/agent · chat, comment, conversation, reply, turn, bubble
+- `mic` ● · IconMic · controls/agent · microphone, record, speech, dictate, audio, listen
+- `minus` · IconMinus · actions · remove, subtract, collapse
+- `monitor` ● · IconMonitor · content · desktop, screen, display, computer
+- `moon` ● · IconMoon · controls/status · dark, night, theme, mode, crescent
+- `mouse` ● · IconMouse · controls/content · pointer, input, device, scroll
+- `music` ● · IconMusic · content/controls · audio, song, note, soundtrack
+- `option` · IconOption · controls · keyboard, modifier, alt, opt, mac
+- `panel-bottom-open` ● · IconPanelBottomOpen · navigation/controls · sidebar, drawer, expand, bottom
+- `panel-bottom` ● · IconPanelBottom · content/navigation · layout, panel, drawer, toolbar, sidebar, bottom, orientation
+- `panel-right` ● · IconPanelRight · content/navigation · layout, panel, drawer, toolbar, sidebar, right, orientation
+- `panel-split` ● · IconPanelSplit · navigation/content · sidebar, layout, split, panes, editor
+- `panel-top-open` ● · IconPanelTopOpen · navigation/controls · sidebar, drawer, expand, top
+- `panel-top` ● · IconPanelTop · content/navigation · layout, panel, drawer, toolbar, sidebar, top, orientation
+- `paperclip` · IconPaperclip · actions · attach, attachment, file
+- `pause` ● · IconPause · actions/controls · hold, suspend, wait, media, interrupt
+- `pencil` ● · IconPencil · actions · write, rename, change, inline edit
+- `percent` ● · IconPercent · content/shapes · discount, rate, ratio, sale, proportion
+- `phone` ● · IconPhone · actions/content · call, telephone, contact, handset
+- `photo` ● · IconPhoto · content · image, picture, media, asset, illustration
+- `pin` ● · IconPin · content/status · map, place, marker, where, pinned
+- `play` ● · IconPlay · actions/controls · run, start, resume, continue, media
+- `plug` ● · IconPlug · content/controls · power, electric, connect, cable
+- `plus` · IconPlus · actions · add, new, create
+- `power` · IconPower · controls · on, off, shutdown, standby
+- `printer` ● · IconPrinter · actions/content · paper, document, hard copy
+- `receipt` ● · IconReceipt · content · invoice, purchase, billing, transaction
+- `redo` · IconRedo · actions · forward, again, reapply, step forward
+- `refresh` · IconRefresh · agent/actions · retry, reload, again, sync, rerun
+- `repeat` · IconRepeat · actions/controls · loop, again, cycle, recurring, replay
+- `route` ● · IconRoute · content/agent · user flow, journey, path, steps, sequence, handoff
+- `rows` ● · IconRows · content · table, items, layout, stack
+- `ruler` ● · IconRuler · content/controls · spacing, size, scale, grid, dimension, layout
+- `save` ● · IconSave · actions · disk, floppy, store, persist
+- `scan` · IconScan · actions/controls · qr, barcode, capture, focus
+- `search` ● · IconSearch · navigation · find, magnifier, lookup
+- `send` ● · IconSend · actions/agent · submit, prompt, paper plane, run, deliver
+- `server` ● · IconServer · agent/content · hosting, infrastructure, compute, rack, backend
+- `settings` ● · IconSettings · controls · gear, cog, preferences, configure
+- `share` ● · IconShare · actions · send, distribute, publish, nodes, graph
+- `shield-check` ● · IconShieldCheck · agent/status · verified, secure, protection, trusted
+- `shield-minus` ● · IconShieldMinus · status/agent · policy, blocked, restricted, protection
+- `shield-plus` ● · IconShieldPlus · status/agent · protect, add, permission, policy
+- `shield` ● · IconShield · agent/status · safety, guardrail, protection, policy, trust, secure
+- `shift` ● · IconShift · controls · keyboard, modifier, shift key, uppercase
+- `shopping-bag` ● · IconShoppingBag · content · cart, basket, store, purchase
+- `sidebar-left-close` ● · IconSidebarLeftClose · navigation/controls · sidebar, panel, left, close, collapse, drawer
+- `sidebar-left-open` ● · IconSidebarLeftOpen · navigation/controls · sidebar, panel, left, open, expand, drawer
+- `sidebar-right-close` ● · IconSidebarRightClose · navigation/controls · sidebar, panel, right, close, collapse, drawer
+- `sidebar-right-open` ● · IconSidebarRightOpen · navigation/controls · sidebar, panel, right, open, expand, drawer
+- `sidebar` ● · IconSidebar · content/navigation · layout, panel, rail, navigation, drawer, sidebar, left, orientation
+- `sitemap` ● · IconSitemap · content/navigation · information architecture, hierarchy, structure, tree, pages, ia
+- `skip-back` ● · IconSkipBack · actions/controls · media, track, playback, previous
+- `skip-forward` ● · IconSkipForward · actions/controls · media, track, playback, next
+- `smartphone` ● · IconSmartphone · content · mobile, phone, device, responsive
+- `sparkle` ● · IconSparkle · agent · thinking, AI, generate, magic, reasoning, star
+- `square-check` ● · IconSquareCheck · agent/status · approve, accept, confirm, allowed, task done
+- `square-minus` ● · IconSquareMinus · actions/status · remove, subtract, collapse, negative, badge
+- `square-plus` ● · IconSquarePlus · actions/status · create, new, positive, add, badge
+- `square-x` ● · IconSquareX · agent/status · reject, deny, decline, blocked, cancel
+- `square` ● · IconSquare · shapes/controls · stop, frame, container, base, halt
+- `stairs` · IconStairs · entry-types · steps, levels, growth, progression, ladder
+- `star` ● · IconStar · actions/status · favourite, favorite, rating, saved, quality
+- `sun` ● · IconSun · controls/status · light, day, theme, brightness, mode
+- `swap` · IconSwap · agent/actions · changed, exchange, replace, diff, update, transfer
+- `table` ● · IconTable · content · grid, rows, columns, data, spreadsheet
+- `tablet` ● · IconTablet · content · device, ipad, responsive, screen
+- `tag` ● · IconTag · content/controls · label, keyword, category, chip, taxonomy
+- `target` ● · IconTarget · agent · scope, goal, focus, aim, objective, bullseye
+- `terminal` ● · IconTerminal · content/agent · console, command, shell, cli, prompt, bash
+- `token` ● · IconToken · agent · tokens, usage, count, cost, credit, hexagon
+- `tool-call` ● · IconToolCall · agent · invoke, function call, run, command, terminal, execute
+- `tool` ● · IconTool · agent/actions · wrench, function, capability, fix, build
+- `trash` · IconTrash · actions · remove, bin, discard, destroy
+- `triangle` ● · IconTriangle · shapes · polygon, geometry
+- `underline` · IconUnderline · controls · text, toolbar
+- `undo` · IconUndo · actions · back, revert, history, step back, cancel
+- `unlock` ● · IconUnlock · agent/status · permission, open, public, access, unsecured
+- `upload` · IconUpload · actions · import, send, attach, arrow up, add file
+- `user-plus` ● · IconUserPlus · actions/controls · invite, add, person, member, account, new
+- `user` ● · IconUser · controls · person, account, profile, avatar
+- `users` ● · IconUsers · controls · people, team, group, members
+- `video` ● · IconVideo · controls/content · camera, meeting, recording, call
+- `volume-off` · IconVolumeOff · controls/status · mute, silent, sound off, audio off
+- `volume` ● · IconVolume · controls · speaker, sound, audio, unmute
+- `wallet` ● · IconWallet · content · money, payment, balance, finance
+- `wifi` ● · IconWifi · status/controls · wireless, network, connection, internet
+- `x` · IconX · actions · close, dismiss, remove, cancel, cross
+- `zap` ● · IconZap · status/actions · bolt, fast, instant, energy, power, flash
+- `zoom-in` ● · IconZoomIn · controls/navigation · magnify, closer, enlarge, detail, scale up
+- `zoom-out` ● · IconZoomOut · controls/navigation · magnify, further, shrink, overview, scale down
